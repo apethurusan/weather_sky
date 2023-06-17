@@ -14,30 +14,30 @@ const getWeatherData = (infoType, searchParams) => {
 const formatCurrentWeather = (data) => {
   const {
     coord: { lat, lon },
-    main: { temp, feels_like, temp_min, temp_max, humidity },name,dt,
-    sys: { country, sunrise, sunset },weather,
+    main: { temp, feels_like, temp_min, temp_max, humidity }, name, dt,
+    sys: { country, sunrise, sunset }, weather,
     wind: { speed },
   } = data;
 
   const { main: details, icon } = weather[0];
 
   return {
-    lat,lon,temp,feels_like,temp_min,temp_max,humidity,name,dt,country,sunrise,sunset,details,icon,speed
+    lat, lon, temp, feels_like, temp_min, temp_max, humidity, name, dt, country, sunrise, sunset, details, icon, speed
   };
 };
 
 //get location's weather details
 const getFormattedWeatherData = async (searchParams) => {
-  const formattedCurrentWeather = await getWeatherData("weather",searchParams)
-  .then(formatCurrentWeather);
+  const formattedCurrentWeather = await getWeatherData("weather", searchParams)
+    .then(formatCurrentWeather);
 
   return {
     ...formattedCurrentWeather,
   };
 };
 
-const formatToLocalTime = (secs,zone,format = "cccc, dd LLL yyyy' | Local time: 'hh:mm a") => 
-DateTime.fromSeconds(secs).setZone(zone).toFormat(format);
+const formatToLocalTime = (secs, zone, format = "cccc, dd LLL yyyy' | Local time: 'hh:mm a") =>
+  DateTime.fromSeconds(secs).setZone(zone).toFormat(format);
 
 const iconUrlFromCode = (code) => `http://openweathermap.org/img/wn/${code}@2x.png`;
 
