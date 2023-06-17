@@ -2,7 +2,6 @@ import React from "react";
 import { TiWeatherDownpour } from "react-icons/ti";
 
 const Navbar = ({ handleUnits }) => {
-
   return (
     <div className="w-full shadow-md fixed top-0 z-50 bg-blue-500 animate-animateOpacity">
       <div className="main-div flex items-center justify-between h-20 font-bold text-[#fff]">

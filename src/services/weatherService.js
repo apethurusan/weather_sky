@@ -4,6 +4,7 @@ import { DateTime } from "luxon";
 const API_KEY = "0109571924251b5b506a453d3d62b2d0";
 const BASE_URL = "https://api.openweathermap.org/data/2.5";
 
+//set API format
 const getWeatherData = (infoType, searchParams) => {
   const url = new URL(BASE_URL + "/" + infoType);
   url.search = new URLSearchParams({ ...searchParams, appid: API_KEY });
@@ -11,6 +12,7 @@ const getWeatherData = (infoType, searchParams) => {
   return fetch(url).then((res) => res.json());
 };
 
+//get location's weather details
 const formatCurrentWeather = (data) => {
   const {
     coord: { lat, lon },
@@ -26,7 +28,7 @@ const formatCurrentWeather = (data) => {
   };
 };
 
-//get location's weather details
+
 const getFormattedWeatherData = async (searchParams) => {
   const formattedCurrentWeather = await getWeatherData("weather", searchParams)
     .then(formatCurrentWeather);
@@ -36,9 +38,11 @@ const getFormattedWeatherData = async (searchParams) => {
   };
 };
 
+//get location's time and date
 const formatToLocalTime = (secs, zone, format = "cccc, dd LLL yyyy' | Local time: 'hh:mm a") =>
   DateTime.fromSeconds(secs).setZone(zone).toFormat(format);
 
+//get current weather icon
 const iconUrlFromCode = (code) => `http://openweathermap.org/img/wn/${code}@2x.png`;
 
 export default getFormattedWeatherData;

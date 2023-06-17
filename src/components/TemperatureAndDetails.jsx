@@ -6,11 +6,7 @@ import { MdOutlineWaterDrop } from "react-icons/md";
 import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
 import { formatToLocalTime, iconUrlFromCode } from "../services/weatherService";
 
-const TemperatureAndDetails = ({
-  weather: {
-    details,icon,temp,temp_min,temp_max,sunrise,sunset,speed,humidity,feels_like,timezone
-  },units,
-}) => {
+const TemperatureAndDetails = ({weather: {details,icon,temp,temp_min,temp_max,sunrise,sunset,speed,humidity,feels_like,timezone},units,}) => {
   return (
     <div className="pb-4">
 
