@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
-import { HiOutlineLocationMarker } from "react-icons/hi";
+import { BiCurrentLocation } from "react-icons/bi";
 
 const Inputs = ({ setQuery }) => {
   const [city, setCity] = useState("");
@@ -38,7 +38,7 @@ const Inputs = ({ setQuery }) => {
           type="text"
           placeholder="Search city"
         />
-        <HiOutlineLocationMarker
+        <BiCurrentLocation
           size={22}
           title="Current Location"
           onClick={handleLocation}

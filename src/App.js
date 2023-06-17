@@ -11,6 +11,7 @@ function App() {
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(false);
 
+  //change celsius or fahrenheit
   const handleUnits = (e) => {
     const selectedUnit = e.currentTarget.name;
     if (units !== selectedUnit) {
@@ -18,7 +19,7 @@ function App() {
     }
   };
 
-  // find current location
+  //find current location
   const handleLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
