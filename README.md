@@ -1,1 +1,1 @@
-Live : https://weather-sky-app.netlify.app/
+Demo Live : https://weather-sky-app.netlify.app/
